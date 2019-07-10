@@ -1,0 +1,55 @@
+package com.oods.produk.Pembeli;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.view.Window;
+import android.widget.TextView;
+
+import com.oods.produk.Admin.MainActivity;
+import com.oods.produk.R;
+
+import java.util.logging.Handler;
+
+public class Splashscreen extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splashscreen);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        final int welcomeScreenDisplay = 3000; // 3000 = 3 detik
+        Thread welcomeThread = new Thread() {
+
+            int wait = 0;
+
+            @Override
+            public void run() {
+                try {
+                    super.run();
+                    while (wait < welcomeScreenDisplay) {
+                        sleep(100);
+                        wait += 100;
+                    }
+                } catch (Exception e) {
+                    System.out.println("EXc=" + e);
+
+                } finally {
+                    Intent intent = new Intent(Splashscreen.this, Login.class);
+                    finish();
+                    startActivity(intent);
+                }
+            }
+        };
+
+        welcomeThread.start();
+
+    }
+}
+
+
