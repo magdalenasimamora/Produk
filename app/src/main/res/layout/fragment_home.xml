@@ -89,10 +89,10 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/btnHub"
+                            android:id="@+id/btnDetail"
                             android:layout_width="match_parent"
                             android:layout_height="fill_parent"
-                            android:text="Hubungi Penjual"
+                            android:text="Detail Barang"
                             android:textColor="@color/colorWhite"
                             android:background="@color/colorPrimary"/>
 
@@ -167,10 +167,10 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/btnHub1"
+                            android:id="@+id/btnDetail1"
                             android:layout_width="match_parent"
                             android:layout_height="fill_parent"
-                            android:text="Hubungi Penjual"
+                            android:text="Detail Barang"
                             android:textColor="@color/colorWhite"
                             android:background="@color/colorPrimary"/>
 

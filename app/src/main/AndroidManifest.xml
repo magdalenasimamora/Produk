@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Pembeli.Detail"></activity>
         <activity android:name=".Pembeli.Home" />
         <activity
             android:name=".Pembeli.Dashboard"
