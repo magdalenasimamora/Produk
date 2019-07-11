@@ -131,9 +131,9 @@ public class MainActivity extends AppCompatActivity {
                             }, 500);
 
                             Toast.makeText(MainActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), taskSnapshot.getDownloadUrl().toString());
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
+//                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), taskSnapshot.getDownloadUrl().toString());
+//                            String uploadId = mDatabaseRef.push().getKey();
+//                            mDatabaseRef.child(uploadId).setValue(upload);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

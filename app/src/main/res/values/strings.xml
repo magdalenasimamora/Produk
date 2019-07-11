@@ -24,4 +24,17 @@
     <string name="title_home">Home</string>
     <string name="title_favorit">Favorit</string>
     <string name="title_notifications">Notifications</string>
+    <string name="login">Login</string>
+    <string name="email">Email :</string>
+    <string name="password">Password :</string>
+    <string name="register">Register</string>
+    <string name="first_name">First Name :</string>
+    <string name="last_name">Last Name :</string>
+    <string name="mobile">Mobile</string>
+    <string name="terms1">By Sign up, you agree our</string>
+    <string name="terms2">Terms and Conditions.</string>
+    <string name="desc1">Already have an account ?</string>
+    <string name="log1">Can\'t login ?</string>
+    <string name="log2">Forgot Password !</string>
+    <string name="oth1">Don\'t have an account ?</string>
 </resources>

@@ -18,8 +18,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.oods.produk.Admin.MainActivity;
 import com.oods.produk.R;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -36,14 +34,17 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Checking for first time launch - before calling setContentView()
+        // mengecek lauch activity - sebelum memanggil setContentView()
         prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
-            finish();
-        }
 
-        // Making notification bar transparent
+        // mengecek intro slider udah pernah dijalankan
+        // kalau udah pernah, langsung skip ke login
+//        if (!prefManager.isFirstTimeLaunch()) {
+//            launchHomeScreen();
+//            finish();
+//        }
+
+        // membuat transparan notifikasi
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
@@ -56,7 +57,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext = (Button) findViewById(R.id.btn_next);
 
 
-        // layouts of all welcome sliders
+        // layout xml slide 1 sampai 4
         // add few more layouts if you want
         layouts = new int[]{
                 R.layout.welcome_slide1,
@@ -64,10 +65,10 @@ public class WelcomeActivity extends AppCompatActivity {
                 R.layout.welcome_slide3,
                 R.layout.welcome_slide4};
 
-        // adding bottom dots
+        // tombol dots (lingkaran kecil perpindahan slide)
         addBottomDots(0);
 
-        // making notification bar transparent
+        // membuat transparan notifikasi
         changeStatusBarColor();
 
         myViewPagerAdapter = new MyViewPagerAdapter();
@@ -84,8 +85,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // checking for last page
-                // if last page home screen will be launched
+                // mengecek page terakhir (slide 4)
+                // jika activity home sudah tampil
                 int current = getItem(+1);
                 if (current < layouts.length) {
                     // move to next screen
@@ -122,18 +123,18 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
 
-    //	viewpager change listener
+    //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
 
-            // changing the next button text 'NEXT' / 'GOT IT'
+            // mengubah button lanjut 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
                 btnNext.setText(getString(R.string.start));

@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Pembeli.Home" />
         <activity
             android:name=".Pembeli.Dashboard"
-            android:label="@string/title_activity_dashboard"></activity>
+            android:label="@string/title_activity_dashboard" />
         <activity android:name=".Pembeli.Register" />
         <activity android:name=".Pembeli.Login" />
-        <activity android:name=".Pembeli.Splashscreen" />
-        <activity android:name=".Pembeli.WelcomeActivity" />
-        <activity android:name=".Pembeli.Intro" />
-        <activity android:name=".Admin.ImagesActivity" />
-        <activity android:name=".Admin.MainActivity">
+        <activity android:name=".Pembeli.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImageActivity" />
+        <activity android:name=".Pembeli.WelcomeActivity" />
+        <activity android:name=".Pembeli.Intro" />
+        <activity android:name=".Admin.ImagesActivity" />
+        <activity android:name=".Admin.MainActivity" />
     </application>
 
 </manifest>

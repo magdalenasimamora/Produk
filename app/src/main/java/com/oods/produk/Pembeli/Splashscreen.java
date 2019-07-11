@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.oods.produk.Admin.MainActivity;
@@ -17,6 +18,9 @@ public class Splashscreen extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splashscreen);
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -40,7 +44,7 @@ public class Splashscreen extends AppCompatActivity {
                     System.out.println("EXc=" + e);
 
                 } finally {
-                    Intent intent = new Intent(Splashscreen.this, Login.class);
+                    Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                     finish();
                     startActivity(intent);
                 }
@@ -48,7 +52,6 @@ public class Splashscreen extends AppCompatActivity {
         };
 
         welcomeThread.start();
-
     }
 }
 
